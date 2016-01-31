@@ -3,6 +3,7 @@ setup.py
 django_g_recaptcha.egg-info/PKG-INFO
 django_g_recaptcha.egg-info/SOURCES.txt
 django_g_recaptcha.egg-info/dependency_links.txt
+django_g_recaptcha.egg-info/requires.txt
 django_g_recaptcha.egg-info/top_level.txt
 g_recaptcha/__init__.py
 g_recaptcha/__init__.pyc

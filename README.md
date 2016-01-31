@@ -5,11 +5,11 @@
 
 # SETUP #
 
-## 1. ## 
+## 1. Download and install ## 
 ```
-#!git
+#!python
 
-git clone https://deltaskelta@bitbucket.org/deltaskelta/django-g-recaptcha-validate.git
+pip install django-g-recaptcha
 ```
  
 ## 2. Add.. ##
