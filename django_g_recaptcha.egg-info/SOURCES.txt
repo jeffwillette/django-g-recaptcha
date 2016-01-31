@@ -1,0 +1,13 @@
+MANIFEST.in
+setup.py
+django_g_recaptcha.egg-info/PKG-INFO
+django_g_recaptcha.egg-info/SOURCES.txt
+django_g_recaptcha.egg-info/dependency_links.txt
+django_g_recaptcha.egg-info/top_level.txt
+g_recaptcha/README.md
+g_recaptcha/__init__.py
+g_recaptcha/__init__.pyc
+g_recaptcha/requires.txt
+g_recaptcha/validate_recaptcha.py
+g_recaptcha/validate_recaptcha.pyc
+g_recaptcha/templates/captcha_fail.html
