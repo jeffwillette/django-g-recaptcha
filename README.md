@@ -38,11 +38,7 @@ return render(request, 'template.html', context)
 
 ## 4. Add the google recaptcha script to your <head> ##
 
-<<<<<<< HEAD
-# 5. Add the recaptcha div with the site key passed in your context... ##
-=======
 ## 5. Add the recaptcha div with the site key passed in your context... ##
->>>>>>> b05acb3148399ac0dd668219aa195efeec52963a
 
 ```
 #!html
