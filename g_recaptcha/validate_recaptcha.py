@@ -6,13 +6,21 @@ import json
 from django.shortcuts import render
 
 
+
+
 def validate_captcha(view):
-    '''Decorator to validate a captcha based on settings'''
+    '''Decorator to validate a captcha based on settings
+    --validate captcha also has some special html to populate the G-Recaptcha site key from context processors /main/contact.html
+    --There is also some jquery to handle it asynchronously in static/main/mainscript
+    --Also need to put the g-script for the g-recaptcha div to load'''
 
     def wrap(request, *args, **kwargs):
 
-        def failure():
+        def failure_http():
             return render(request, 'captcha_fail.html',)
+
+        def failure_ajax():
+            return HttpResponse('There was a problem with the captcha, please try again')
 
         if request.method == 'POST':
 
@@ -31,7 +39,10 @@ def validate_captcha(view):
             # result["success"] will be True on a success
             if result["success"]:
                 return view(request, *args, **kwargs)
+            elif request.is_ajax():
+                return failure_ajax()
             else:
-                return failure()
+                return failure_http()
+
         return view(request, *args, **kwargs)
     return wrap
