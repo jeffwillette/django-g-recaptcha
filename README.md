@@ -64,4 +64,4 @@ def view(request):
 
 INSTALLED_APPS += ('g_recaptcha')
 ```
-On a successful captcha submission it will process the rest of the view, if it fails, it will render a template which says there was a problem with the captcha. Override or extend this template however you see fit.
+On a successful captcha submission it will process the rest of the view, if it fails, it will render a template which says there was a problem with the captcha. Override or extend this template however you see fit. It also has some logic to detect whether the request is ajax, if it is ajax it will return a simple HttpResponse that can be input on the page instead of returning a full template
