@@ -41,7 +41,7 @@ context = {
 
 return render(request, 'template.html', context)
 ```
-## 4. Add the google recaptcha script to the <head> of your HTML file
+## 4. Add the google recaptcha script to the `<head>` of your HTML file
 
 your_template.html:
 
