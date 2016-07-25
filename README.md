@@ -5,23 +5,29 @@
 
 # SETUP #
 
-## 1. Download and install ## 
+## 1. Download and install
 ```
 #!python
 
 pip install django-g-recaptcha
 ```
- 
-## 2. Add.. ##
+
+## 2. Add site key and secret key (obtained from Google)...
+
+Settings.py:
+
 ```
 #!python
+
+...
 
 GOOGLE_RECAPTCHA_SITE_KEY = 'key_obtained_from_google'
 GOOGLE_RECAPTCHA_SECRET_KEY = 'key_obtained_from_google' 
 ```
-to your settings.py file
 
-## 3. Pass the site key in your context... ##
+## 3. Pass the site key to a view through context... 
+
+views.py:
 
 ```
 #!python
@@ -35,19 +41,23 @@ context = {
 
 return render(request, 'template.html', context)
 ```
+## 4. Add the google recaptcha script to the <head> of your HTML file
 
-## 4. Add the google recaptcha script to your <head> ##
+your_template.html:
 
-## 5. Add the recaptcha div with the site key passed in your context... ##
+```
+<head>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+```
+## 5. Add the recaptcha div with the site key passed in your context... 
 
 ```
 #!html
 
-
 <div class="g-recaptcha" data-sitekey="{{ GOOGLE_RECAPTCHA_SITE_KEY }}"></div>
 ```
-## 6. add the decorator to your views... ##
-
+## 6. add the decorator to your views...
 
 ```
 #!python
@@ -56,7 +66,7 @@ return render(request, 'template.html', context)
 def view(request):
     ...
 ```
-## 7. Add g_recaptcha to your installed apps ... ##
+## 7. Add g_recaptcha to your installed apps ...
 
 
 ```
