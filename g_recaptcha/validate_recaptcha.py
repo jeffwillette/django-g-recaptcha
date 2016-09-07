@@ -19,9 +19,11 @@ def validate_captcha(view):
     def wrap(request, *args, **kwargs):
 
         def failure_http():
-            return render(request, 'captcha_fail.html',)
+            # Status 401 means that they are not authorized
+            return render(request, 'captcha_fail.html', status=401)
         def failure_ajax():
-            return HttpResponse('There was a problem with the captcha, please try again')
+            return HttpResponse(
+                'There was a problem with the captcha, please try again', status=401)
 
         if request.method == 'POST':
             url = "https://www.google.com/recaptcha/api/siteverify"
