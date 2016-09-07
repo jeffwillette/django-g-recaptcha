@@ -47,4 +47,5 @@ def validate_captcha(view):
                 return failure_http()
 
         return view(request, *args, **kwargs)
+    wrap._original = view
     return wrap
