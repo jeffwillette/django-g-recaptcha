@@ -58,3 +58,9 @@ class CaptchaTest(TestCase):
 		self.assertTrue(test.func_name == "wrap")
 		test = foo_view._original
 		self.assertTrue(test.func_name == "foo_view")
+
+	def test_get_validate_captcha_wrapped(self):
+		"""Testing that the get request to the wrapper just returns the view"""
+		request = self.rf.get('')
+		test = foo_view(request)
+		self.assertEqual(test.content, 'it worked')
