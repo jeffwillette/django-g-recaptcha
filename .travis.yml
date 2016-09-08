@@ -1,0 +1,14 @@
+language: python
+python:
+  - "2.7"
+
+# Database services needed by the project
+
+before_script:
+  - pip install -r g_recaptcha/requires.txt
+
+script:
+  - python manage.py test
+
+after_success:
+  - coveralls

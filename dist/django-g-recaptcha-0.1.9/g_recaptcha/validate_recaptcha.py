@@ -18,7 +18,7 @@ def validate_captcha(view):
 
         def failure_http():
             # Status 401 means that they are not authorized
-            return render(request, 'captcha_fail.html', status=401)
+            return render(request, 'templates/captcha_fail.html', status=401)
         def failure_ajax():
             return HttpResponse(
                 'There was a problem with the captcha, please try again', status=401)

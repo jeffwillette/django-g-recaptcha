@@ -1,1 +1,5 @@
 Django
+funcsigs
+mock
+pbr
+six
