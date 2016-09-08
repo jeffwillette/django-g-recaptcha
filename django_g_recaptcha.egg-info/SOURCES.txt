@@ -8,7 +8,6 @@ django_g_recaptcha.egg-info/top_level.txt
 g_recaptcha/.DS_Store
 g_recaptcha/__init__.py
 g_recaptcha/__init__.pyc
-g_recaptcha/apps.py
 g_recaptcha/models.py
 g_recaptcha/models.pyc
 g_recaptcha/requires.txt
