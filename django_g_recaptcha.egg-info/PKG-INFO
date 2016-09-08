@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: django-g-recaptcha
-Version: 0.1.10
+Version: 0.2.2
 Summary: Django view decorator to validate google recaptcha forms
 Home-page: https://github.com/deltaskelta/django-g-recaptcha
 Author: Jeff Willette
