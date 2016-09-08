@@ -51,3 +51,10 @@ class CaptchaTest(TestCase):
 		bar = foo_view(request)
 		urlopen_mock.assert_called()
 		loads_mock.assert_called()
+
+	def test_original_func(self):
+		"""Testing that the call to the bare function works"""
+		test = foo_view
+		self.assertTrue(test.func_name == "wrap")
+		test = foo_view._original
+		self.assertTrue(test.func_name == "foo_view")

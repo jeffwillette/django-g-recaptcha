@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='django-g-recaptcha',
-      version='0.1.9',
+      version='0.1.10',
       description='Django view decorator to validate google recaptcha forms',
       url='https://github.com/deltaskelta/django-g-recaptcha',
       author='Jeff Willette',

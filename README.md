@@ -1,4 +1,4 @@
-# GOOGLE RECAPTCHA DJANGO DECORATOR #
+# GOOGLE RECAPTCHA DJANGO DECORATOR # [![Build Status](https://travis-ci.org/deltaskelta/django-g-recaptcha.svg?branch=master)](https://travis-ci.org/deltaskelta/django-g-recaptcha)
 
 * A decorator, which can be used on django views to validate google-recatpcha forms
 * Version 0.1
