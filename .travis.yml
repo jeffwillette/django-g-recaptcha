@@ -5,10 +5,11 @@ python:
 # Database services needed by the project
 
 before_script:
-  - pip install -r g_recaptcha/requires.txt
+  - pip install python-coveralls
+  - pip install coverage
 
 script:
-  - python manage.py test
+  - coverage run --source=g_recaptcha manage.py g_recaptcha
 
 after_success:
   - coveralls
