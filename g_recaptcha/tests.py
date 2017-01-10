@@ -1,11 +1,9 @@
-import unittest
 import os
+from unittest.mock import MagicMock, patch
 from django.test.client import RequestFactory
 from django.http import HttpResponse
 from django.test import TestCase
-from mock import patch
-from validate_recaptcha import validate_captcha
-from mock import MagicMock, patch
+from .validate_recaptcha import validate_captcha
 
 @validate_captcha
 def foo_view(request):
@@ -19,7 +17,7 @@ class CaptchaTest(TestCase):
 		self.rf = RequestFactory()
 
 	@patch('json.loads')
-	@patch('urllib2.urlopen')
+	@patch('urllib.request.urlopen')
 	def test_validate_captcha_http(self, urlopen_mock, loads_mock):
 		"""making a function wrapped, testing return http"""
 		loads_mock.return_value = {"success": False}
@@ -29,7 +27,7 @@ class CaptchaTest(TestCase):
 		self.assertTrue(x.status_code == 401)
 
 	@patch('json.loads')
-	@patch('urllib2.urlopen')
+	@patch('urllib.request.urlopen')
 	def test_validate_captcha_ajax(self, urlopen_mock, loads_mock):
 		"""making a function wrapped, testing return ajax"""
 		loads_mock.return_value = {"success": False}
@@ -40,7 +38,7 @@ class CaptchaTest(TestCase):
 		self.assertTrue(x.status_code == 401)
 
 	@patch('json.loads')
-	@patch('urllib2.urlopen')
+	@patch('urllib.request.urlopen')
 	def test_validate_captcha_pass(self, urlopen_mock, loads_mock):
 		"""making a function wrapped, testing return dict['success']"""
 
@@ -55,12 +53,12 @@ class CaptchaTest(TestCase):
 	def test_original_func(self):
 		"""Testing that the call to the bare function works"""
 		test = foo_view
-		self.assertTrue(test.func_name == "wrap")
+		self.assertTrue(test.__name__ == "wrap")
 		test = foo_view._original
-		self.assertTrue(test.func_name == "foo_view")
+		self.assertTrue(test.__name__ == "foo_view")
 
 	def test_get_validate_captcha_wrapped(self):
 		"""Testing that the get request to the wrapper just returns the view"""
 		request = self.rf.get('')
 		test = foo_view(request)
-		self.assertEqual(test.content, 'it worked')
+		self.assertEqual(test.content, bytes('it worked', encoding='UTF-8'))

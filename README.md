@@ -10,8 +10,18 @@
 # SETUP #
 
 ## 1. Download and install
+
+Everything up to version `0.2.2` is compatible with python 2.7, releases after 0.2.2 will
+only be compatible with python 3+
+
 ```
 >>> pip install django-g-recaptcha
+```
+
+if you need python 2.7...
+
+```
+pip install django-g-recaptcha==0.2.2
 ```
 
 ## 2. Add site key and secret key (obtained from Google)...

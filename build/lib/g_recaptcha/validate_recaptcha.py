@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.conf import settings
-import urllib
-import urllib2
+import urllib.request, urllib.parse, urllib.error
+import urllib.request, urllib.error, urllib.parse
 import json
 from django.shortcuts import render
 
@@ -27,13 +27,13 @@ def validate_captcha(view):
             url = "https://www.google.com/recaptcha/api/siteverify"
             values = {
                 'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
-                'response': request.POST.get(u'g-recaptcha-response', None),
+                'response': request.POST.get('g-recaptcha-response', None),
                 'remoteip': request.META.get("REMOTE_ADDR", None),
             }
 
-            data = urllib.urlencode(values)
-            req = urllib2.Request(url, data)
-            response = urllib2.urlopen(req)
+            data = urllib.parse.urlencode(values)
+            req = urllib.request.Request(url, data)
+            response = urllib.request.urlopen(req)
             result = json.loads(response.read())
 
             # result["success"] will be True on a success
