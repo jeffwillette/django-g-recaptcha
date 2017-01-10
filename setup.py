@@ -9,6 +9,12 @@ setup(name='django-g-recaptcha',
       keywords = ['django', 'recaptcha', 'catpcha', 'google'],
       packages = ['g_recaptcha'],
       include_package_data = True,
+      install_requires = [
+      	"Django>=1.8",
+      	"funcsigs>=1.0.2",
+      	"mock>=2.0.0",
+      	"pbr>=1.10.0",
+      	"six>=1.10.0",]
 )
 
 # The command to upload: python setup.py sdist upload -r pypi
