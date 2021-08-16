@@ -67,6 +67,7 @@ your_template.html:
 ## 6. add the decorator to your views...
 
 ```python
+from g_recaptcha.validate_recaptcha import validate_captcha
 
 @validate_captcha
 def view(request):
